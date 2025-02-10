@@ -1,0 +1,8 @@
+- name: play3
+  hosts: all
+  tasks:
+    - name: deleteing the new
+      file:
+        dest: "/home/ansible/new"
+        dest: "/home/ansible/output.txt"
+        state: absent

@@ -1,0 +1,15 @@
+ - name: play6 
+   hosts: all
+   become: yes
+
+   tasks:
+
+     - name: adding dns 
+       lineinfile:
+        path: /etc/resolv.conf
+        line: "10.202.10.202"
+        create: yes
+     - name: adding dns2
+       lineinfile:
+        path: /etc/resolv.conf
+        line: "10.202.10.102"

@@ -1,0 +1,12 @@
+- name: play1
+  hosts: all
+  become: yes
+  tasks:
+  - name: Getting Uptime 
+    shell: "uptime"
+
+  - name: installing Network tools
+    apt:
+      name: net-tools
+      state: present 
+      update_cache: yes

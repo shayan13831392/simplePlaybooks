@@ -1,0 +1,11 @@
+ - name: play9
+   hosts: all
+   tasks:
+   - name: printing something 
+     shell: "echo -e 'my name is shayan\nthis is devops class'"
+     register: result1 
+   - name: Displaying the register
+     debug:
+      var: result1 
+
+

@@ -1,0 +1,12 @@
+ - name: play5
+   hosts: all
+   become: yes
+
+
+
+   tasks: 
+   - name: Adding a new nameserver 
+     lineinfile: 
+      path: /etc/resolv.conf 
+      line: "nameserver 8.8.8.8"
+      state: absent 

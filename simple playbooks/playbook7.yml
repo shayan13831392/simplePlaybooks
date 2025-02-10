@@ -1,0 +1,18 @@
+ - name: play7
+   hosts: all
+   become: yes
+   
+   tasks:
+     - name: changing number of ssh sessions 
+       replace:
+         regexp: '#MaxSession 10'
+         replace: '#MaxSession 20'
+         path: /etc/sshd_config
+         backup: yes
+
+
+     - name: restart sshd service
+       service: 
+        name: sshd
+        state: restarted
+

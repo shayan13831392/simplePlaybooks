@@ -1,0 +1,26 @@
+- name: play3 
+  hosts: all
+
+
+  tasks:
+  - name: Installing net-tools 
+    become: yes
+    apt:
+      name: net-tools 
+      state: latest
+
+  - name: Copying the script       
+    copy:
+      src: "/home/ansible/script1.sh"
+      dest: "/home/ansible"
+      force: yes
+      mode: 0755
+      owner: ansible 
+      group: ansible 
+  
+  - name: Executing the script 
+    shell: "/home/ansible/script1.sh"
+
+
+  - name: Reading output 
+    shell: "cat /home/ansible/output.txt"

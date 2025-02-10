@@ -1,0 +1,23 @@
+ - name: play8
+   hosts: all
+   become: yes
+
+   tasks:
+   - name: Copying the script to all the servers 
+     copy:
+       content: | 
+         #!/bin/bash
+         OUTPUT=/home/ansible/output.txt
+         netstat -pentual | grep 22 | grep ESTABLISHED >> $OUTPUT
+       dest: /home/ansible/script3.sh
+       force: yes
+       mode: 0755
+       owner: ansible 
+       group: ansible  
+   - name: executing the script
+     shell: "/home/ansible/script3.sh"
+
+   - name: reading the output 
+     shell: 'cat /home/ansible/output.txt'
+
+
